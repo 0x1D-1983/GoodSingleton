@@ -5,14 +5,11 @@ namespace GoodSingleton
     public sealed class Singleton
     {
         private static readonly Lazy<Singleton> lazySingleton = new Lazy<Singleton>(
-            () => new Singleton()
+            () => new Singleton(), true
         );
 
-        public Singleton Instance => lazySingleton.Value;
+        public static Singleton Instance => lazySingleton.Value;
 
-        private Singleton()
-        {
-
-        }
+        private Singleton() { }
     }
 }
